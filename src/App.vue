@@ -1,32 +1,89 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="main">
+    <router-link to="/" class="logo">
+      <i>🏞</i> Parks Wiki <span>WINNIPEG</span>
+    </router-link>
+    <nav>
+      <a href="/about">About</a>
+      <a href="https://github.com/harshPPatel/winnipeg-parks-wiki" target="_blank"
+        >GitHub
+      </a>
+    </nav>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import './scss/mapbox';
+@import './scss/skeleton';
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Sen', sans-serif;
 }
 
-#nav {
-  padding: 30px;
+#main {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  .logo,
+  nav {
+    z-index: 999;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    color: #2e2e2e;
+  }
 
-    &.router-link-exact-active {
-      color: #42b983;
+  .logo {
+    span {
+      font-weight: bold;
+      font-size: 12px;
+      opacity: 0.5;
     }
+  }
+
+  nav {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+
+    a {
+      color: #2e2e2e;
+      font-size: 14px;
+      opacity: 1;
+      transition: all 0.2s ease;
+      &:last-of-type {
+        margin-left: 16px;
+      }
+
+      &:hover,
+      &:active {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .logo:link,
+  .logo:visited {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 1;
+    transition: all 0.2s ease;
+  }
+
+  .logo:hover,
+  .logo:active {
+    text-decoration: underline;
+    opacity: 0.85;
   }
 }
 </style>
