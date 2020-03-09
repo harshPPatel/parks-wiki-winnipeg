@@ -53,13 +53,20 @@ export default {
     },
     zoom: 13,
     parks: [],
+    radius: 2500,
   }),
   created() {
     this.mapbox = Mapbox;
+    if (window.innerWidth < 800) {
+      this.raidus = 1800;
+    }
+    if (window.innerWidth < 500) {
+      this.raidus = 1000;
+    }
   },
   methods: {
     async fetchParks(lng, lat) {
-      const API = `http://localhost:5000/api/v1/winnipeg-parks?$where=within_circle(location,${lat},${lng},2000)`;
+      const API = `https://proxy-server.now.sh/api/v1/winnipeg-parks?$where=within_circle(location,${lat},${lng},${this.radius})`;
       await fetch(API)
         .then((res) => res.json())
         .then((data) => {
@@ -83,11 +90,13 @@ export default {
 <style lang="scss">
 .home {
   width: 100%;
-  min-height: 100vh;
+  min-height: 700px;
+  height: 100vh;
   position: relative;
 
   .mgl-map-wrapper {
-    min-height: 100vh;
+    min-height: 700px;
+    height: 100vh;
   }
 }
 

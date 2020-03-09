@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <router-link to="/" class="logo">
-      <i>🏞</i> Parks Wiki <span>WINNIPEG</span>
+      <i>🏞</i> Parks Wiki <br> <span>WINNIPEG</span>
     </router-link>
     <nav>
       <a href="/about">About</a>
@@ -25,7 +25,8 @@ body {
 
 #main {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 700px;
+  height: 100vh;
   position: relative;
 
   .logo,
@@ -36,9 +37,23 @@ body {
     border-radius: 6px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     color: #2e2e2e;
+
+    @media screen and (max-width: 468px) {
+      padding: 8px 14px;
+    }
   }
 
   .logo {
+    br {
+      display: none;
+    }
+
+    @media screen and (max-width: 468px) {
+      text-align: center;
+      br {
+        display: block;
+      }
+    }
     span {
       font-weight: bold;
       font-size: 12px;

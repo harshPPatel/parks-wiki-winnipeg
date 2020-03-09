@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     async fetchPark(id) {
-      const API = `http://localhost:5000/api/v1/winnipeg-parks?park_id=${id}`;
+      const API = `https://proxy-server.now.sh/api/v1/winnipeg-parks?park_id=${id}`;
       await fetch(API)
         .then((res) => res.json())
         .then((data) => {
@@ -162,6 +162,9 @@ tr {
 table {
   min-width: 600px;
   font-size: 16px;
+  @media screen and (max-width: 768px) {
+    min-width: 80vw;
+  }
 }
 
 .about-map,
