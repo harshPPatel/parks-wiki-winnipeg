@@ -9,7 +9,7 @@
     "deploy": "vue-cli-service build && now --prod"
   },
   "dependencies": {
-    "core-js": "^3.6.4",
+    "core-js": "^3.6.5",
     "mapbox-gl": "^1.8.1",
     "vue": "^2.6.11",
     "vue-mapbox": "^0.4.1",
